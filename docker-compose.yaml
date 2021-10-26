@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  rstudio:
+    container_name: rstudio
+    restart: unless-stopped
+    build: rstudio/.
+    volumes: 
+      - /Users/mac/Documents/git_projects/docker-rstudio/scripts_example:/home/rstudio//example_scripts
+    environment:
+      - TZ=America/New_York
+      - PASSWORD=${PASSWORD}
+    ports:
+      - 8888:8787
+  shiny:
+    container_name: shiny
+    restart: unless-stopped
+    build: shiny/.
+    volumes:
+      - /Users/mac/Documents/git_projects/docker-rstudio/shiny/srv/shinyapps/:/srv/shiny-server/ 
+      - /Users/mac/Documents/git_projects/docker-rstudio/shiny/srv/shinylog/:/var/log/shiny-server/ 
+    ports:
+      - 8080:3838
+
+networks:
+  default:
+    external:
+      name: my-net
