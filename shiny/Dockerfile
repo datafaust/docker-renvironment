@@ -13,7 +13,7 @@ RUN R -e "install.packages(c('rmarkdown', 'shinydashboard', 'scales', 'DT', 'zoo
     R -e "install.packages('https://cran.r-project.org/src/contrib/fontawesome_0.2.2.tar.gz', repo=NULL, type='source')" && \
     R -e "install.packages('https://cran.r-project.org/src/contrib/shiny_1.7.1.tar.gz', repo=NULL, type='source')" && \
     R -e "install.packages('https://cran.r-project.org/src/contrib/shinyjs_2.1.0.tar.gz', repo=NULL, type='source')" && \
-    R -e "install.packages('https://cran.r-project.org/src/contrib/shinymanager_1.0.400.tar.gz', repo=NULL, type='source')" && \
+    R -e "install.packages(c('shinyjs'))" && \
     cp -R /usr/local/lib/R/site-library/shiny/examples/* /srv/shiny-server/ && \
     chown shiny:shiny /var/lib/shiny-server
 
