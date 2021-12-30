@@ -1,6 +1,6 @@
 FROM rocker/shiny-verse:4.0.0
 
-RUN R -e "install.packages(c('rmarkdown', 'shinydashboard', 'scales', 'DT', 'zoo', 'plotly', 'data.table','lubridate','Hmisc', 'bp', 'gridExtra', 'googlesheets4'))" && \
+RUN R -e "install.packages(c('rmarkdown', 'shinydashboard', 'scales', 'DT', 'zoo', 'plotly', 'data.table','lubridate','Hmisc', 'gridExtra', 'googlesheets4'))" && \
     R -e "install.packages('https://cran.r-project.org/src/contrib/rappdirs_0.3.3.tar.gz', repo=NULL, type='source')" && \
     R -e "install.packages('https://cran.r-project.org/src/contrib/rlang_0.4.12.tar.gz', repo=NULL, type='source')" && \
     R -e "install.packages('https://cran.r-project.org/src/contrib/fastmap_1.1.0.tar.gz', repo=NULL, type='source')" && \
@@ -12,8 +12,8 @@ RUN R -e "install.packages(c('rmarkdown', 'shinydashboard', 'scales', 'DT', 'zoo
     R -e "install.packages('https://cran.r-project.org/src/contrib/rlang_0.4.12.tar.gz', repo=NULL, type='source')" && \
     R -e "install.packages('https://cran.r-project.org/src/contrib/fontawesome_0.2.2.tar.gz', repo=NULL, type='source')" && \
     R -e "install.packages('https://cran.r-project.org/src/contrib/shiny_1.7.1.tar.gz', repo=NULL, type='source')" && \
-    R -e "install.packages('https://cran.r-project.org/src/contrib/shinyjs_2.1.0.tar.gz', repo=NULL, type='source')" && \
-    R -e "install.packages(c('shinyjs'))" && \
+    R -e "install.packages(c('shinyjs', 'shinymanager'))" && \
+    R -e "devtools::install_github('johnschwenck/bp')" && \
     cp -R /usr/local/lib/R/site-library/shiny/examples/* /srv/shiny-server/ && \
     chown shiny:shiny /var/lib/shiny-server
 

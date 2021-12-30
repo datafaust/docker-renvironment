@@ -1,5 +1,0 @@
-su: ignoring --preserve-environment, it's mutually exclusive with --login
-Error in loadNamespace(name) : there is no package called ‘shiny’
-Calls: local ... loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart
-Execution halted
-
