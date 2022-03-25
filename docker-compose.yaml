@@ -6,8 +6,8 @@ services:
     restart: unless-stopped
     build: rstudio/.
     volumes: 
-      - ./rstudio/scripts_example:/home/rstudio/example_scripts
-      - ./rstudio/projects:/home/rstudio/projects
+      - ../rstudio/scripts_example:/home/rstudio/example_scripts
+      - ../rstudio/projects:/home/rstudio/projects
     environment:
       - TZ=America/New_York
       - PASSWORD=${PASSWORD}
@@ -18,8 +18,8 @@ services:
     restart: unless-stopped
     build: shiny/.
     volumes:
-      - ./shiny/srv/shinyapps/:/srv/shiny-server/ 
-      - ./shiny/srv/shinylog/:/var/log/shiny-server/ 
+      - ../shiny/srv/shinyapps/:/srv/shiny-server/ 
+      - ../shiny/srv/shinylog/:/var/log/shiny-server/ 
     ports:
       - 8080:3838
 
