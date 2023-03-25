@@ -24,8 +24,15 @@ RUN apt-get clean all && \
   apt-get purge && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
  
-RUN Rscript -e "install.packages(c('rmarkdown', 'tidyverse', 'workflowr', 'BiocManager'));"
+RUN Rscript -e "install.packages(c('rmarkdown', 'tidyverse', 'workflowr', 'BiocManager', 'magrittr', 'jsonlite', 'lubridate', 'rlang', 'assertthat', 'foreach', 'devtools'));"
 RUN Rscript -e "BiocManager::install(version = '3.12')"
+
+# github packages
+RUN Rscript -e "devtools::install_github(repo = 'https://github.com/pepfar-datim/datimutils.git', ref = 'master');"
+RUN Rscript -e "devtools::install_github(repo = 'https://github.com/pepfar-datim/datapackr.git', ref = 'master');"
+RUN Rscript -e "devtools::install_github(repo = 'https://github.com/pepfar-datim/data-pack-commons.git', ref = 'master');"
+
+
 COPY .Rprofile /home/rstudio/
 
 #RUN Python package installations
